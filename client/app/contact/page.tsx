@@ -5,6 +5,7 @@ import type React from "react";
 import Link from "next/link";
 import { ArrowRight, Mail, Phone, MapPin, Calendar, Send } from "lucide-react";
 import { useState } from "react";
+import Header from "../../components/Header";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -35,62 +36,18 @@ export default function ContactPage() {
 
   return (
     <div className="min-h-screen bg-gray-900 text-white">
-      {/* Navigation */}
-      <nav className="fixed top-0 w-full bg-gray-900/95 backdrop-blur-sm border-b border-gray-800 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <Link href="/" className="text-2xl font-bold text-white">
-              SARAH CHEN
-            </Link>
-            <div className="hidden md:flex space-x-8">
-              <Link
-                href="/about"
-                className="text-gray-300 hover:text-white transition-colors"
-              >
-                About
-              </Link>
-              <Link
-                href="/portfolio"
-                className="text-gray-300 hover:text-white transition-colors"
-              >
-                Portfolio
-              </Link>
-              <Link
-                href="/brands"
-                className="text-gray-300 hover:text-white transition-colors"
-              >
-                Brands & Press
-              </Link>
-              <Link
-                href="/services"
-                className="text-gray-300 hover:text-white transition-colors"
-              >
-                Services
-              </Link>
-              <Link href="/contact" className="text-yellow-400 font-semibold">
-                Contact
-              </Link>
-            </div>
-            <Link
-              href="/contact"
-              className="bg-gradient-to-r from-yellow-400 to-yellow-600 text-black px-6 py-2 rounded-full font-semibold hover:from-yellow-300 hover:to-yellow-500 transition-all"
-            >
-              Work With Me
-            </Link>
-          </div>
-        </div>
-      </nav>
+      <Header active="/contact" />
 
       {/* Hero Section */}
       <section className="pt-24 pb-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-5xl lg:text-6xl font-bold mb-6">
+          <h1 className="text-2xl md:text-4xl lg:text-6xl font-bold mb-6">
             Let's Create Something{" "}
             <span className="bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent">
               Amazing
             </span>
           </h1>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto mb-16">
+          <p className="text-sm md:text-xl text-gray-400 max-w-3xl mx-auto mb-16">
             Ready to amplify your brand's voice and connect with audiences
             authentically? I'd love to hear about your vision and explore how we
             can bring it to life together.
@@ -99,12 +56,12 @@ export default function ContactPage() {
       </section>
 
       {/* Contact Form & Info */}
-      <section className="pb-20 px-4 sm:px-6 lg:px-8">
+      <section className="pb-20 px-2 sm:px-4 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-16">
             {/* Contact Form */}
             <div className="bg-gray-800/50 rounded-2xl p-8">
-              <h2 className="text-3xl font-bold mb-8">
+              <h2 className="text-xl md:text-3xl font-bold mb-8">
                 Start Our Conversation
               </h2>
 

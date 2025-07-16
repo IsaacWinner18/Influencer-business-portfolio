@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, Play, Users, Eye, Menu, X } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
+import Header from "../components/Header";
 
 // Counter animation hook
 function useCountUp(end: number, duration = 2000, shouldStart = false) {
@@ -92,143 +93,7 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen bg-gray-900 text-white">
-      {/* Navigation with glassmorphism */}
-      <nav className="fixed top-0 w-full bg-gray-900/80 backdrop-blur-md border-b border-gray-800/50 z-50 transition-all duration-300">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <Link href="/" className="text-2xl font-bold text-white">
-              JUSTADA
-            </Link>
-
-            {/* Desktop Menu */}
-            <div className="hidden md:flex space-x-8">
-              <Link
-                href="/about"
-                className="text-gray-300 hover:text-white transition-colors"
-              >
-                About
-              </Link>
-              <Link
-                href="/portfolio"
-                className="text-gray-300 hover:text-white transition-colors"
-              >
-                Portfolio
-              </Link>
-              <Link
-                href="/brands"
-                className="text-gray-300 hover:text-white transition-colors"
-              >
-                Brands & Press
-              </Link>
-              <Link
-                href="/services"
-                className="text-gray-300 hover:text-white transition-colors"
-              >
-                Services
-              </Link>
-              <Link
-                href="/contact"
-                className="text-gray-300 hover:text-white transition-colors"
-              >
-                Contact
-              </Link>
-            </div>
-
-            {/* Desktop CTA */}
-            <Link
-              href="/contact"
-              className="hidden md:inline-flex bg-gradient-to-r from-yellow-400 to-yellow-600 text-black px-6 py-2 rounded-full font-semibold hover:from-yellow-300 hover:to-yellow-500 transition-all transform hover:scale-105"
-            >
-              Work With Me
-            </Link>
-
-            {/* Mobile Menu Button */}
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="md:hidden p-2 rounded-lg hover:bg-gray-800/50 transition-colors backdrop-blur-sm"
-            >
-              {isMenuOpen ? (
-                <X className="w-6 h-6" />
-              ) : (
-                <Menu className="w-6 h-6" />
-              )}
-            </button>
-          </div>
-        </div>
-
-        {/* Mobile Menu Overlay */}
-        {isMenuOpen && (
-          <div
-            className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 md:hidden animate-fadeIn"
-            onClick={() => setIsMenuOpen(false)}
-          />
-        )}
-
-        {/* Mobile Menu Slide Panel with glassmorphism */}
-        <div
-          className={`fixed top-0 left-0 h-full w-80 bg-gray-900/90 backdrop-blur-xl border-r border-gray-800/50 transform transition-transform duration-300 ease-in-out z-50 md:hidden ${
-            isMenuOpen ? "translate-x-0" : "-translate-x-full"
-          }`}
-        >
-          <div className="flex items-center justify-between p-4 border-b border-gray-800/50">
-            <span className="text-xl font-bold">JUSTADA</span>
-            <button
-              onClick={() => setIsMenuOpen(false)}
-              className="p-2 rounded-lg hover:bg-gray-800/50 transition-colors"
-            >
-              <X className="w-5 h-5" />
-            </button>
-          </div>
-
-          <div className="flex flex-col p-4 space-y-4">
-            <Link
-              href="/about"
-              className="text-gray-300 hover:text-white transition-all py-3 px-4 rounded-lg hover:bg-gray-800/50 backdrop-blur-sm transform hover:translate-x-2"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              About
-            </Link>
-            <Link
-              href="/portfolio"
-              className="text-gray-300 hover:text-white transition-all py-3 px-4 rounded-lg hover:bg-gray-800/50 backdrop-blur-sm transform hover:translate-x-2"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Portfolio
-            </Link>
-            <Link
-              href="/brands"
-              className="text-gray-300 hover:text-white transition-all py-3 px-4 rounded-lg hover:bg-gray-800/50 backdrop-blur-sm transform hover:translate-x-2"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Brands & Press
-            </Link>
-            <Link
-              href="/services"
-              className="text-gray-300 hover:text-white transition-all py-3 px-4 rounded-lg hover:bg-gray-800/50 backdrop-blur-sm transform hover:translate-x-2"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Services
-            </Link>
-            <Link
-              href="/contact"
-              className="text-gray-300 hover:text-white transition-all py-3 px-4 rounded-lg hover:bg-gray-800/50 backdrop-blur-sm transform hover:translate-x-2"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Contact
-            </Link>
-
-            <div className="pt-4 border-t border-gray-800/50">
-              <Link
-                href="/contact"
-                className="w-full bg-gradient-to-r from-yellow-400 to-yellow-600 text-black px-6 py-3 rounded-full font-semibold hover:from-yellow-300 hover:to-yellow-500 transition-all flex items-center justify-center transform hover:scale-105"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Work With Me
-              </Link>
-            </div>
-          </div>
-        </div>
-      </nav>
+      <Header />
 
       {/* Hero Section with parallax */}
       <section className="pt-24 pb-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
@@ -247,16 +112,16 @@ export default function HomePage() {
               }`}
             >
               <div className="space-y-4">
-                <h1 className="text-5xl lg:text-7xl font-bold leading-tight">
+                <h1 className="text-3xl md:text-4xl lg:text-7xl font-bold leading-tight">
                   Turning Attention into{" "}
                   <span className="bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent">
                     Impact
                   </span>
                 </h1>
-                <p className="text-xl text-gray-300 leading-relaxed">
+                <p className="text-md md:text-xl text-gray-300 leading-relaxed">
                   800K+ Followers. 150+ Brands. One Voice.
                 </p>
-                <p className="text-lg text-gray-400 max-w-lg">
+                <p className="text-md md:text-lg text-gray-400 max-w-lg">
                   I help brands grow, engage, and convert audiences on TikTok,
                   Instagram, and YouTube through viral storytelling that drives
                   real business results.
@@ -266,7 +131,7 @@ export default function HomePage() {
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
                   href="/services"
-                  className="bg-gradient-to-r from-yellow-400 to-yellow-600 text-black px-8 py-4 rounded-full font-semibold text-lg hover:from-yellow-300 hover:to-yellow-500 transition-all flex items-center justify-center group transform hover:scale-105 hover:shadow-lg hover:shadow-yellow-400/25"
+                  className="bg-gradient-to-r from-yellow-400 to-yellow-600 text-white px-6 md:px-8 py-4 rounded-full font-semibold text-md md:text-lg hover:from-yellow-300 hover:to-yellow-500 transition-all flex items-center justify-center group transform hover:scale-105 hover:shadow-lg hover:shadow-yellow-400/25"
                 >
                   Work With Me
                   <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -386,8 +251,8 @@ export default function HomePage() {
                 : "opacity-0 translate-y-10"
             }`}
           >
-            <h2 className="text-4xl font-bold mb-4">Featured Campaigns</h2>
-            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+            <h2 className="text-2xl md:text-4xl font-bold mb-4">Featured Campaigns</h2>
+            <p className="text-md md:text-xl text-gray-400 max-w-2xl mx-auto">
               Recent collaborations that drove exceptional results for global
               brands
             </p>
@@ -467,7 +332,7 @@ export default function HomePage() {
           }`}
         >
           <div className="bg-gray-800/30 backdrop-blur-md rounded-2xl p-8 lg:p-12 border border-gray-700/50">
-            <blockquote className="text-2xl lg:text-3xl font-light text-gray-300 mb-8 leading-relaxed">
+            <blockquote className="text-lg md:text-2xl lg:text-3xl font-light text-gray-300 mb-8 leading-relaxed">
               "Justada doesn't just create content—she creates movements. Her
               campaign for our new product launch generated 3.5x ROI and became
               our most successful influencer partnership to date."
@@ -482,7 +347,7 @@ export default function HomePage() {
               />
               <div className="text-left">
                 <div className="font-semibold text-white">Jessica Martinez</div>
-                <div className="text-gray-400">Marketing Director, Nike</div>
+                <div className="text-gray-400 text-sm">Marketing Director, Nike</div>
               </div>
             </div>
           </div>
@@ -492,16 +357,16 @@ export default function HomePage() {
       {/* CTA Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl font-bold mb-6">
+          <h2 className="text-2xl md:text-4xl font-bold mb-6">
             Ready to Create Something Amazing?
           </h2>
-          <p className="text-xl text-gray-400 mb-8 max-w-2xl mx-auto">
+          <p className="text-md md:text-xl text-gray-400 mb-8 max-w-2xl mx-auto">
             Let's discuss how we can amplify your brand's voice and drive real
             business results through authentic storytelling.
           </p>
           <Link
             href="/contact"
-            className="bg-gradient-to-r from-yellow-400 to-yellow-600 text-black px-12 py-4 rounded-full font-semibold text-lg hover:from-yellow-300 hover:to-yellow-500 transition-all inline-flex items-center group transform hover:scale-105 hover:shadow-lg hover:shadow-yellow-400/25"
+            className="bg-gradient-to-r from-yellow-400 to-yellow-600 text-white px-12 py-4 rounded-full font-semibold text-lg hover:from-yellow-300 hover:to-yellow-500 transition-all inline-flex items-center group transform hover:scale-105 hover:shadow-lg hover:shadow-yellow-400/25"
           >
             Start a Conversation
             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
