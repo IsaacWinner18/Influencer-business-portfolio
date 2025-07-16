@@ -70,7 +70,7 @@ export default function Header({ active = "" }: { active?: string }) {
             isMenuOpen ? "translate-x-0" : "-translate-x-full"
           }`}
         >
-          <div className="flex items-center justify-between p-4 border-b border-gray-800">
+          <div className="flex items-center justify-between p-4 border-b border-gray-800 bg-gray-900">
             <span className="text-xl font-bold">JUSTADA</span>
             <button
               onClick={() => setIsMenuOpen(false)}
@@ -81,7 +81,7 @@ export default function Header({ active = "" }: { active?: string }) {
             </button>
           </div>
 
-          <div className="flex flex-col p-4 space-y-4">
+          <div className="flex flex-col p-4 space-y-4 bg-gray-900">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
