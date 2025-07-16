@@ -8,7 +8,7 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Justada - Content Creator & Brand Strategist",
   description:
-    "Premium content creator with 800K+ followers helping brands connect with audiences through authentic storytelling. Trusted by Nike, Sephora, Samsung, and more.",
+    "Premium content creator with 800K+ followers helping brands connect with audiences through authentic storytelling and more.",
   keywords:
     "content creator, influencer marketing, brand partnerships, social media strategy, TikTok, Instagram, YouTube",
   authors: [{ name: "Justada" }],
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     siteName: "Justada",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "https://res.cloudinary.com/dkfmaqtpy/image/upload/v1752663373/justada_fdt2qr.jpg",
         width: 1200,
         height: 630,
         alt: "Justada - Content Creator",
@@ -34,7 +34,9 @@ export const metadata: Metadata = {
     title: "Justada - Content Creator & Brand Strategist",
     description:
       "Premium content creator with 800K+ followers helping brands connect with audiences through authentic storytelling.",
-    images: ["/og-image.jpg"],
+    images: [
+      "https://res.cloudinary.com/dkfmaqtpy/image/upload/v1752663373/justada_fdt2qr.jpg",
+    ],
   },
   robots: {
     index: true,
